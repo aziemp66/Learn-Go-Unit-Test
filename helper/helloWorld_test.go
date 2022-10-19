@@ -2,10 +2,10 @@ package helper
 
 import (
 	"fmt"
-	"testing"
-
-	assert "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"runtime"
+	"testing"
 )
 
 func Test_HelloWorld(t *testing.T) {
@@ -38,4 +38,16 @@ func Test_HelloWorldRequire(t *testing.T) {
 	result := HelloWorld("Melza")
 	require.Equal(t, "Hello Melza!", result, "Result Must Be 'Hello Melza!'")
 	fmt.Println("Tidak Dieksekusi")
+
+}
+
+func Test_Skip(t *testing.T) {
+	Os := runtime.GOOS
+	fmt.Println(Os)
+	if Os == "linux" {
+		t.Skip("Unit Tes Tidak Bisa Jalan di Linux")
+	}
+
+	result := HelloWorld("Eko")
+	require.Equal(t, "Hello Eko!", result)
 }
