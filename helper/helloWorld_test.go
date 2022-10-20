@@ -8,6 +8,14 @@ import (
 	"testing"
 )
 
+func TestMain(m *testing.M) {
+	fmt.Println("Sebelum Unit Test")
+
+	m.Run()
+
+	fmt.Println("Setelah Unit Test")
+}
+
 func Test_HelloWorld(t *testing.T) {
 	result := HelloWorld("Eko")
 	if result != "Hello Eko!" {
