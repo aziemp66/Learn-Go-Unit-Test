@@ -99,3 +99,9 @@ func Test_HelloWorldTable(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkHelloWorld(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("Azie")
+	}
+}
